@@ -2,6 +2,8 @@
 
 This Python program is a game that tests your knowledge of TV series ratings. The program randomly selects two TV series and asks the player to choose which one has a higher IMDb rating.
 
+[Click here to play the game](https://replit.com/@Al-JunaedIslam/Higher-Lower-Game-TV-Series-Rating?v=1)
+
 ## Features
 
 - The program randomly selects two TV series from a pre-defined list and asks the player to choose which one has a higher rating.
