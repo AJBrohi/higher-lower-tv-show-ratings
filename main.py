@@ -16,7 +16,7 @@ Genre: {series['genre']}""")
 
 def answer(a, b):
     """returns the name of TV Series which have higher rating"""
-    return a if a['rating'] >= b['rating'] else b
+    return a if a >= b else b
 
 
 def play_game():
@@ -50,12 +50,16 @@ def play_game():
         # randomly choose tv series B
         tv_series_b = choice(tv_series)
 
+        # if both series are same
+        while tv_series_a == tv_series_b:
+            tv_series_b = choice(tv_series)
+
         # print details of tv series B
         print("TV Series B -")
         print_tv_series(tv_series_b,  False)
 
         # compare ratings by calling answer function and have the correct tv series name as an answer
-        correct_answer = answer(tv_series_a, tv_series_b)
+        correct_answer = answer(tv_series_a['rating'], tv_series_b['rating'])
 
         # ask user to choose a movie by typing A or B
         user_choice = input(
@@ -64,9 +68,9 @@ def play_game():
         # if correct A: then score will increase by 1
         # if correct B: then score will increase by 1 and tv series B will be the tv series A in next round
         # if failed: print wrong answer message and show the final score
-        if user_choice == 'a' and correct_answer == tv_series_a:
+        if user_choice == 'a' and correct_answer == tv_series_a['rating']:
             score += 1
-        elif user_choice == 'b' and correct_answer == tv_series_b:
+        elif user_choice == 'b' and correct_answer == tv_series_b['rating']:
             tv_series_a = tv_series_b
             score += 1
         else:
